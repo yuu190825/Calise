@@ -11,105 +11,32 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.gray.ignoresSafeArea()
-            VStack {
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
+            GeometryReader {
+                geometry in
+                VStack {
+                    HStack {
+                        Text("0 ")
+                            .background(.white)
+                        Button(action: {}) {
+                            Text("<-")
+                        }
+                        .foregroundColor(.white)
+                        .background(.blue)
                     }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
+                    .frame(width: geometry.size.width, height: geometry.size.height / 9)
+                    HStack {
+                        Text("0 ")
+                            .background(.white)
+                        Button(action: {}) {
+                            Text("<-")
+                        }
+                        .foregroundColor(.white)
+                        .background(.blue)
                     }
+                    .frame(width: geometry.size.width, height: geometry.size.height / 9)
                 }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
-                HStack {
-                    Text("0 ")
-                        .frame(width: 300, height: 50)
-                        .background(.white)
-                    Button(action: {}) {
-                        Text("<-")
-                            .frame(width: 75, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 50)
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .frame(width: UIScreen.main.bounds.width, height: 500)
         }
     }
 }
