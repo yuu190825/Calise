@@ -11,32 +11,48 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.gray.ignoresSafeArea()
-            GeometryReader {
-                geometry in
-                VStack {
-                    HStack {
+            VStack(spacing: 0) {
+                GeometryReader {
+                    geometry in
+                    HStack(spacing: 0) {
                         Text("0 ")
+                            .font(.system(size: 24))
+                            .frame(width: ((geometry.size.width / 4) * 3), height: geometry.size.height, alignment: .trailing)
                             .background(.white)
                         Button(action: {}) {
                             Text("<-")
+                                .font(.system(size: 24))
                         }
+                        .frame(width: (geometry.size.width / 4), height: geometry.size.height)
                         .foregroundColor(.white)
                         .background(.blue)
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height / 9)
-                    HStack {
-                        Text("0 ")
-                            .background(.white)
-                        Button(action: {}) {
-                            Text("<-")
-                        }
-                        .foregroundColor(.white)
-                        .background(.blue)
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height / 9)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack(spacing: 0) {
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(6)
         }
     }
 }
