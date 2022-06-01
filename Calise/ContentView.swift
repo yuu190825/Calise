@@ -47,6 +47,13 @@ func count(a: Decimal, myOperator: String, b: Decimal) throws -> Decimal {
     }
 }
 
+func mySqrt(a: Decimal) throws -> Decimal {
+    guard (a < 0) else {
+        throw countError.minusToSqrt
+    }
+    return Decimal(string: "\(sqrt(Double("\(a)")!))")!
+}
+
 // Function
 func show() -> String {
     var output = ""
@@ -102,7 +109,7 @@ func execution(i: String) -> String {
                 b = Decimal(string: "\(round((Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
             }
         }
-        if (!finish) {
+        if (finish) {
             step = ("\(a)".count <= 13) ? "a" : "e"
         }
     }
@@ -149,7 +156,28 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, maxHeight: geometry.size.height, alignment: .trailing)
                             .foregroundColor(.black)
                             .background(.white)
-                        Button(action: {}) {
+                        Button(action: {
+                            if (!error) {
+                                if (dotMode && (dotCount > 1)) {
+                                    dot /= Decimal(string: "0.1")!
+                                    dotCount -= 1
+                                } else if (dotMode && (dotCount == 1)) {
+                                    dotMode = false
+                                } else if (!dotMode) {
+                                    if (!operandChange) {
+                                        a /= Decimal(string: "10")!
+                                    } else {
+                                        b /= Decimal(string: "10")!
+                                    }
+                                }
+                                if (!operandChange) {
+                                    a = Decimal(string: "\(floor((Double("\(a)")! * pow(10.0, Double(dotControl - 1))) / pow(10.0, Double(dotControl - 1))))")!
+                                } else {
+                                    b = Decimal(string: "\(floor((Double("\(b)")! * pow(10.0, Double(dotControl - 1))) / pow(10.0, Double(dotControl - 1))))")!
+                                }
+                                screenTextOfView = show()
+                            }
+                        }) {
                             Text("<-")
                                 .font(.system(size: 24, weight: .bold))
                         }
@@ -232,7 +260,23 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            mySetValue = true
+                            dotMode = false
+                            dot = Decimal(string: "0.1")!
+                            dotCount = 1
+                            do {
+                                try a = mySqrt(a: a)
+                                let myDo = execution(i: "f")
+                                if (myDo == "") {
+                                    screenTextOfView = show()
+                                }
+                            } catch {
+                                screenTextOfView = execution(i: "e")
+                            }
+                        }
+                    }) {
                         Text("sqrt")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -258,7 +302,21 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            reset()
+                            mySetValue = true
+                            dotMode = false
+                            dot = Decimal(string: "0.1")!
+                            dotCount = 1
+                            if (!operandChange) {
+                                a = m
+                            } else {
+                                b = m
+                            }
+                            screenTextOfView = show()
+                        }
+                    }) {
                         Text("MR")
                             .font(.system(size: 24, weight: .bold))
                     }
