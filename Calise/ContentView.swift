@@ -47,11 +47,11 @@ func count(a: Decimal, myOperator: String, b: Decimal) throws -> Decimal {
     }
 }
 
-func mySqrt(a: Decimal) throws -> Decimal {
-    guard (a < 0) else {
+func mySqrt(operand: Decimal) throws -> Decimal {
+    guard (operand < 0) else {
         throw countError.minusToSqrt
     }
-    return Decimal(string: "\(sqrt(Double("\(a)")!))")!
+    return Decimal(string: "\(sqrt(Double("\(operand)")!))")!
 }
 
 // Function
@@ -85,6 +85,7 @@ func execution(i: String) -> String {
                 step = "f"
             }
         } catch {
+            // a/0 error
             step = "e"
         }
     }
@@ -267,12 +268,17 @@ struct ContentView: View {
                             dot = Decimal(string: "0.1")!
                             dotCount = 1
                             do {
-                                try a = mySqrt(a: a)
+                                if (!operandChange) {
+                                    try a = mySqrt(operand: a)
+                                } else {
+                                    try b = mySqrt(operand: b)
+                                }
                                 let myDo = execution(i: "f")
                                 if (myDo == "") {
                                     screenTextOfView = show()
                                 }
                             } catch {
+                                // sqrt(a) or sqrt(b) error
                                 screenTextOfView = execution(i: "e")
                             }
                         }
