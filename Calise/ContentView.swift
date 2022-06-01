@@ -29,7 +29,7 @@ enum countError: Error {
     case minusToSqrt
 }
 
-func count(a: Decimal, myOperator: String, b: Decimal) throws -> Decimal {
+func count(operandA: Decimal, myOperatorOfCount: String, operandB: Decimal) throws -> Decimal {
     guard ((myOperator == "div") && (b != Decimal(string: "0")!)) else {
         throw countError.divideZero
     }
@@ -75,7 +75,7 @@ func execution(i: String) -> String {
         dot = Decimal(string: "0.1")!
         dotCount = 1
         do {
-            try a = count(a: a, myOperator: myOperator, b: b)
+            try a = count(operandA: a, myOperatorOfCount: myOperator, operandB: b)
             b = Decimal(string: "0")!
             if (!finish) {
                 step = ("\(a)".count <= 13) ? "a" : "e"
@@ -135,6 +135,29 @@ func reset() {
             b = Decimal(string: "0")!
         }
     }
+}
+
+// Button Function
+func numberButtonClick(number: Decimal) {
+}
+
+func operatorButtonClick(myOperatorOfOBC: String) -> Bool {
+    var output = false
+    finish = false
+    if (!operandChange) {
+        setAB = false
+        mySetValue = false
+        operandChange = true
+        dotMode = false
+        dot = Decimal(string: "0.1")!
+        dotCount = 1
+    } else if (operandChange && setAB) {
+        output = true
+    }
+    if (!error) {
+        myOperator = myOperatorOfOBC
+    }
+    return output
 }
 
 struct ContentView: View {
@@ -289,7 +312,14 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            let toCount = operatorButtonClick(myOperatorOfOBC: "pow")
+                            if (toCount) {
+                                screenTextOfView = execution(i: "c")
+                            }
+                        }
+                    }) {
                         Text("^")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -354,28 +384,47 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "7")!)
+                        }
+                    }) {
                         Text("7")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "8")!)
+                        }
+                    }) {
                         Text("8")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "9")!)
+                        }
+                    }) {
                         Text("9")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            let toCount = operatorButtonClick(myOperatorOfOBC: "div")
+                            if (toCount) {
+                                screenTextOfView = execution(i: "c")
+                            }
+                        }
+                    }) {
                         Text("/")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -385,28 +434,47 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "4")!)
+                        }
+                    }) {
                         Text("4")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "5")!)
+                        }
+                    }) {
                         Text("5")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "6")!)
+                        }
+                    }) {
                         Text("6")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            let toCount = operatorButtonClick(myOperatorOfOBC: "mul")
+                            if (toCount) {
+                                screenTextOfView = execution(i: "c")
+                            }
+                        }
+                    }) {
                         Text("*")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -416,28 +484,47 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "1")!)
+                        }
+                    }) {
                         Text("1")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "2")!)
+                        }
+                    }) {
                         Text("2")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "3")!)
+                        }
+                    }) {
                         Text("3")
                             .font(.system(size: 24, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            let toCount = operatorButtonClick(myOperatorOfOBC: "sub")
+                            if (toCount) {
+                                screenTextOfView = execution(i: "c")
+                            }
+                        }
+                    }) {
                         Text("-")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -447,7 +534,11 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            numberButtonClick(number: Decimal(string: "0")!)
+                        }
+                    }) {
                         Text("0")
                             .font(.system(size: 24, weight: .bold))
                     }
@@ -481,7 +572,14 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .background(.blue)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (!error) {
+                            let toCount = operatorButtonClick(myOperatorOfOBC: "add")
+                            if (toCount) {
+                                screenTextOfView = execution(i: "c")
+                            }
+                        }
+                    }) {
                         Text("+")
                             .font(.system(size: 24, weight: .bold))
                     }
