@@ -139,6 +139,22 @@ func reset() {
 
 // Button Function
 func numberButtonClick(number: Decimal) {
+    reset()
+    if (!dotMode && !operandChange && ("\(a)".count < 13)) {
+        a *= Decimal(string: "10")!
+        a += number
+    } else if (!dotMode && operandChange && ("\(b)".count < 13)) {
+        b *= Decimal(string: "10")!
+        b += number
+    } else if (dotMode && !operandChange && ("\(a)".count < 13)) {
+        a += (number * dot)
+        dot *= Decimal(string: "0.1")!
+        dotCount += 1
+    } else if (dotMode && operandChange && ("\(b)".count < 13)) {
+        b += (number * dot)
+        dot *= Decimal(string: "0.1")!
+        dotCount += 1
+    }
 }
 
 func operatorButtonClick(myOperatorOfOBC: String) -> Bool {
@@ -387,6 +403,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "7")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("7")
@@ -398,6 +415,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "8")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("8")
@@ -409,6 +427,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "9")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("9")
@@ -437,6 +456,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "4")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("4")
@@ -448,6 +468,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "5")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("5")
@@ -459,6 +480,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "6")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("6")
@@ -487,6 +509,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "1")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("1")
@@ -498,6 +521,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "2")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("2")
@@ -509,6 +533,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "3")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("3")
@@ -537,6 +562,7 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "0")!)
+                            screenTextOfView = show()
                         }
                     }) {
                         Text("0")
