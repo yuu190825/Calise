@@ -48,7 +48,7 @@ func count(operandA: Decimal, myOperatorOfCount: String, operandB: Decimal) thro
 }
 
 func mySqrt(operand: Decimal) throws -> Decimal {
-    guard (operand < 0) else {
+    guard (operand >= 0) else {
         throw countError.minusToSqrt
     }
     return Decimal(string: "\(sqrt(Double("\(operand)")!))")!
