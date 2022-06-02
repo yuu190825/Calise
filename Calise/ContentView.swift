@@ -30,7 +30,7 @@ enum countError: Error {
 }
 
 func count(operandA: Decimal, myOperatorOfCount: String, operandB: Decimal) throws -> Decimal {
-    guard ((myOperator == "div") && (b != Decimal(string: "0")!)) else {
+    guard ((myOperator != "div") || (b != Decimal(string: "0")!)) else {
         throw countError.divideZero
     }
     switch myOperator {
