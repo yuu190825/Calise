@@ -223,7 +223,7 @@ struct ContentView: View {
                         }
                         .frame(width: geometry.size.height, height: geometry.size.height)
                         .foregroundColor(.white)
-                        .background(.blue)
+                        .background(.black)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
@@ -245,7 +245,7 @@ struct ContentView: View {
                             .font(.system(size: 24, weight: .bold))
                             .frame(width: 50, height: 40)
                             .foregroundColor(.white)
-                            .background(.blue)
+                            .background(.black)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     VStack {
@@ -258,7 +258,7 @@ struct ContentView: View {
                             .font(.system(size: 24, weight: .bold))
                             .frame(width: 40, height: 40)
                             .foregroundColor(.white)
-                            .background(.blue)
+                            .background(.black)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
@@ -283,7 +283,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             if (!operandChange) {
@@ -299,7 +299,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             mySetValue = true
@@ -327,7 +327,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             let toCount = operatorButtonClick(myOperatorOfOBC: "pow")
@@ -341,7 +341,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
@@ -353,7 +353,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             reset()
@@ -374,7 +374,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             m -= (!operandChange) ? a : b
@@ -385,7 +385,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             m += (!operandChange) ? a : b
@@ -396,7 +396,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
@@ -411,7 +411,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "8")!)
@@ -423,7 +423,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "9")!)
@@ -435,7 +435,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             let toCount = operatorButtonClick(myOperatorOfOBC: "div")
@@ -449,7 +449,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
@@ -464,7 +464,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "5")!)
@@ -476,7 +476,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "6")!)
@@ -488,7 +488,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             let toCount = operatorButtonClick(myOperatorOfOBC: "mul")
@@ -502,7 +502,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
@@ -517,7 +517,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "2")!)
@@ -529,7 +529,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             numberButtonClick(number: Decimal(string: "3")!)
@@ -541,7 +541,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             let toCount = operatorButtonClick(myOperatorOfOBC: "sub")
@@ -555,7 +555,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack(spacing: 6) {
@@ -570,7 +570,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             if ((!operandChange && ("\(a)".count < 12)) || (operandChange && ("\(b)".count < 12))) {
@@ -585,7 +585,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             finish = true
@@ -597,7 +597,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                     Button(action: {
                         if (!error) {
                             let toCount = operatorButtonClick(myOperatorOfOBC: "add")
@@ -611,7 +611,7 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(.blue)
+                    .background(.black)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
