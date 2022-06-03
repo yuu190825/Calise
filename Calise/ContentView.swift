@@ -93,21 +93,21 @@ func execution(i: String) -> String {
         switch oouControl {
         case 0:
             if (!operandChange) {
-                a = Decimal(string: "\(floor((Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                a = Decimal(string: "\(floor(Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             } else {
-                b = Decimal(string: "\(floor((Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                b = Decimal(string: "\(floor(Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             }
         case 2:
             if (!operandChange) {
-                a = Decimal(string: "\(ceil((Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                a = Decimal(string: "\(ceil(Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             } else {
-                b = Decimal(string: "\(ceil((Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                b = Decimal(string: "\(ceil(Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             }
         default:
             if (!operandChange) {
-                a = Decimal(string: "\(round((Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                a = Decimal(string: "\(round(Double("\(a)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             } else {
-                b = Decimal(string: "\(round((Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl))))")!
+                b = Decimal(string: "\(round(Double("\(b)")! * pow(10.0, Double(dotControl))) / pow(10.0, Double(dotControl)))")!
             }
         }
         if (finish) {
@@ -192,7 +192,7 @@ struct ContentView: View {
                     geometry in
                     HStack(spacing: 6) {
                         Text("\(screenTextOfView)")
-                            .font(.system(size: 24))
+                            .font(.system(size: 24, weight: .bold))
                             .frame(maxWidth: .infinity, maxHeight: geometry.size.height, alignment: .trailing)
                             .foregroundColor(.black)
                             .background(.white)
@@ -211,15 +211,15 @@ struct ContentView: View {
                                     }
                                 }
                                 if (!operandChange) {
-                                    a = Decimal(string: "\(floor((Double("\(a)")! * pow(10.0, Double(dotControl - 1))) / pow(10.0, Double(dotControl - 1))))")!
+                                    a = Decimal(string: "\(floor(Double("\(a)")! * pow(10.0, Double(dotCount - 1))) / pow(10.0, Double(dotCount - 1)))")!
                                 } else {
-                                    b = Decimal(string: "\(floor((Double("\(b)")! * pow(10.0, Double(dotControl - 1))) / pow(10.0, Double(dotControl - 1))))")!
+                                    b = Decimal(string: "\(floor(Double("\(b)")! * pow(10.0, Double(dotCount - 1))) / pow(10.0, Double(dotCount - 1)))")!
                                 }
                                 screenTextOfView = show()
                             }
                         }) {
                             Text("<-")
-                                .font(.system(size: 24, weight: .bold))
+                                .font(.system(size: 36, weight: .bold))
                         }
                         .frame(width: geometry.size.height, height: geometry.size.height)
                         .foregroundColor(.white)
@@ -242,20 +242,20 @@ struct ContentView: View {
                             oouControl = Int(oouControlOfView)
                         })
                         Text("\(oouControlTextOfView)")
-                            .font(.system(size: 24))
+                            .font(.system(size: 24, weight: .bold))
                             .frame(width: 50, height: 40)
                             .foregroundColor(.white)
                             .background(.blue)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     VStack {
-                        Slider(value: $dotControlOfView, in: 0...2, step: 1, onEditingChanged: {
+                        Slider(value: $dotControlOfView, in: 0...3, step: 1, onEditingChanged: {
                             editing in
                             dotControlTextOfView = "\(Int(dotControlOfView))"
                             dotControl = Int(dotControlOfView)
                         })
                         Text("\(dotControlTextOfView)")
-                            .font(.system(size: 24))
+                            .font(.system(size: 24, weight: .bold))
                             .frame(width: 40, height: 40)
                             .foregroundColor(.white)
                             .background(.blue)
@@ -279,7 +279,7 @@ struct ContentView: View {
                         screenTextOfView = show()
                     }) {
                         Text("C")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -295,7 +295,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("+/-")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -323,7 +323,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("sqrt")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -337,7 +337,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("^")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -349,7 +349,7 @@ struct ContentView: View {
                         m = Decimal(string: "0")!
                     }) {
                         Text("MC")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -370,7 +370,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("MR")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -381,7 +381,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("M-")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -392,7 +392,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("M+")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -407,7 +407,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("7")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -419,7 +419,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("8")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -431,7 +431,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("9")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -445,7 +445,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("/")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -460,7 +460,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("4")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -472,7 +472,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("5")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -484,7 +484,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("6")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -498,7 +498,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("*")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -513,7 +513,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("1")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -525,7 +525,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("2")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -537,7 +537,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("3")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -551,7 +551,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("-")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -566,7 +566,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("0")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -581,7 +581,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text(".")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -593,7 +593,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("=")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
@@ -607,7 +607,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("+")
-                            .font(.system(size: 24, weight: .bold))
+                            .font(.system(size: 36, weight: .bold))
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
