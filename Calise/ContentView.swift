@@ -27,11 +27,15 @@ var dotCount = 1
 enum countError: Error {
     case divideZero
     case minusToSqrt
+    case powError
 }
 
 func count(operandA: Decimal, myOperatorOfCount: String, operandB: Decimal) throws -> Decimal {
     guard ((myOperator != "div") || (b != Decimal(string: "0")!)) else {
         throw countError.divideZero
+    }
+    guard (((a > Decimal(string: "0")!) || (a < Decimal(string: "0")!)) || (myOperator != "pow") || (b > Decimal(string: "0")!)) else {
+        throw countError.powError
     }
     switch myOperator {
     case "add":
@@ -42,8 +46,10 @@ func count(operandA: Decimal, myOperatorOfCount: String, operandB: Decimal) thro
         return a * b
     case "div":
         return a / b
-    default:
+    case "pow":
         return pow(a, Int("\(b)")!)
+    default:
+        return Decimal(string: "0")!
     }
 }
 
@@ -86,6 +92,7 @@ func execution(i: String) -> String {
             }
         } catch {
             // a/0 error
+            // 0 pow (0, -b) error
             step = "e"
         }
     }
