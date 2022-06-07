@@ -294,9 +294,13 @@ struct ContentView: View {
                     Button(action: {
                         if (!error) {
                             if (!operandChange) {
-                                a *= Decimal(string: "-1")!
+                                if ((a > Decimal(string: "0")!) || (a < Decimal(string: "0")!)) {
+                                    a *= Decimal(string: "-1")!
+                                }
                             } else {
-                                b *= Decimal(string: "-1")!
+                                if ((b > Decimal(string: "0")!) || (b < Decimal(string: "0")!)) {
+                                    b *= Decimal(string: "-1")!
+                                }
                             }
                             screenTextOfView = show()
                         }
